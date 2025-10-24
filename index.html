@@ -1,0 +1,207 @@
+script><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arthur Rodrigues — Dev Web3</title>
+<style>
+  :root{
+    --bg:#0b0b0b;
+    --card:#0f0f12;
+    --accent1:#5d00ff;
+    --accent2:#00c2ff;
+    --text:#e8eef6;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:Inter, sans-serif;
+    background:linear-gradient(180deg,#030305 0%, var(--bg) 100%);
+    color: var(--text);
+  }
+  .container{
+    max-width: 920px;
+    margin: 32px auto;
+    padding: 28px;
+  }
+  header{
+    display:flex;
+    gap:20px;
+    align-items:center;
+    background: linear-gradient(90deg,var(--card),#0b0b0d);
+    padding:22px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.03);
+  }
+  .avatar{
+    width:110px;
+    height:110px;
+    border-radius:16px;
+    overflow:hidden;
+    border:2px solid rgba(255,255,255,0.03);
+  }
+  .meta h1{
+    margin:0;
+    font-size:1.6rem;
+    letter-spacing:0.4px;
+  }
+  .meta p{
+    margin:6px 0 0;
+    opacity:0.9;
+  }
+  .badges{
+    margin-top:18px;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .badge{
+    background:rgba(255,255,255,0.03);
+    padding:8px 12px;
+    border-radius:999px;
+    font-size:0.9rem;
+    border:1px solid rgba(93,0,255,0.12);
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 320px;
+    gap:18px;
+    margin-top:20px;
+  }
+  .card{
+    background:var(--card);
+    padding:18px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.03);
+  }
+  .wallet .pub{
+    word-break:break-all;
+    font-family:monospace;
+    background:#07070a;
+    padding:10px;
+    border-radius:8px;
+    margin-top:10px;
+  }
+  .links a{
+    display:inline-block;
+    margin-right:10px;
+    color:var(--accent2);
+    text-decoration:none;
+  }
+  .qr{
+    display:block;
+    margin:12px auto 0;
+    width:160px;
+    height:160px;
+    object-fit:contain;
+    background:#fff;
+    padding:8px;
+    border-radius:12px;
+  }
+  .cta{
+    margin-top:12px;
+    display:flex;
+    gap:10px;
+    align-items:center;
+  }
+  .btn{
+    background:linear-gradient(90deg,var(--accent1),var(--accent2));
+    color:#041017;
+    padding:10px 14px;
+    border-radius:10px;
+    font-weight:600;
+    border:none;
+    cursor:pointer;
+  }
+  footer{
+    text-align:center;
+    margin:28px 0 60px;
+    color:rgba(255,255,255,0.6);
+  }
+  @media(max-width:860px){
+    .grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="avatar"><img src="avatar.png" alt="Avatar" style="width:100%;height:100%;object-fit:cover"></div>
+    <div class="meta">
+      <h1>Arthur Rodrigues <span style="font-size:0.8rem;opacity:0.8">— Dev Web3</span></h1>
+      <p>Criador de soluções Web3 para o futuro da internet</p>
+      <div class="badges">
+        <span class="badge">NFTs</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div>
+      <div class="card">
+        <h3>Sobre</h3>
+        <p>Criador de soluções Web3 — trabalho criando produtos baseados em NFTs e experiências digitais conectadas à blockchain.</p>
+        <h4 style="margin-top:12px">Habilidades</h4>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+          <span class="badge">Smart Contracts</span>
+          <span class="badge">Solidity (básico)</span>
+          <span class="badge">React</span>
+          <span class="badge">Web3.js / Ethers.js</span>
+          <span class="badge">Design de NFT</span>
+        </div>
+        <div style="margin-top:14px">
+          <h4>Links</h4>
+          <div class="links">
+            <a href="https://github.com/your-github-username" target="_blank">GitHub</a>
+          </div>
+        </div>
+        <div class="cta">
+          <button class="btn" onclick="connectWallet()">Conectar Wallet</button>
+          <div style="font-size:0.9rem;opacity:0.9">ou escaneie o QR da carteira</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <h3>Projetos em destaque</h3>
+        <ul style="margin-top:8px;padding-left:18px">
+          <li>Projeto NFT — coleções e minting</li>
+          <li>Experiências digitais tokenizadas</li>
+          <li>Integração com marketplaces</li>
+        </ul>
+      </div>
+    </div>
+
+    <aside class="card wallet">
+      <h3>Wallet • Chave Pública</h3>
+      <div class="pub" id="walletPub">0xd837e0c7b54a32c3fb35e1410dcb99716bd65296</div>
+      <img src="img/download.png" alt="QR da wallet" class="qr">
+      <p style="text-align:center;margin-top:8px;opacity:0.85">Escaneie para copiar ou enviar fundos</p>
+    </aside>
+  </div>
+
+  <footer>
+    Feito com ❤️ — Arthur Rodrigues · Perfil gerado automaticamente
+  </footer>
+</div>
+// Função para conectar a wallet via MetaMask
+async function connectWallet() {
+  if (window.ethereum) {
+    try {
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      alert('Conectado: ' + accounts[0]);
+      document.getElementById('walletPub').innerText = accounts[0];
+    } catch (error) {
+      alert('Conexão cancelada.');
+    }
+  } else {
+    alert('Nenhuma carteira detectada. Use MetaMask/WalletConnect.');
+  }
+}
+</script>
+</body>
+</html>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZoAAAGaAQAAAAAefbjOAAADGElEQVR4nO2cTY7bOBBGX40IeCkBcw..." alt="QR Code Wallet">
+
+
+
+
